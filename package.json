@@ -1,0 +1,29 @@
+{
+  "name": "vuejs-slider",
+  "version": "0.0.7",
+  "description": "Simple Slider for Vue.js",
+  "scripts": {},
+  "keywords": [
+    "slider",
+    "vue",
+    "carousel",
+    "slide",
+    "slideshow"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/WonhyeokJung/vue-slider.git"
+  },
+  "author": {
+    "name": "WonhyeokJung",
+    "url": "https://WonhyeokJung.github.io"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/WonhyeokJung/vue-slider/issues",
+    "email": ""
+  },
+  "devDependencies": {
+    "typescript": "^4.7.4"
+  }
+}
