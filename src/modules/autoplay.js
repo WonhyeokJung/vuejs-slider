@@ -1,9 +1,7 @@
 import { addEvent, eventsEmitter } from '../utils/event';
 
 export function autoplay(state) {
-  // module 등록 후 apply(this값, ..args)로 호출했을 때 대비.
   if (!state) state = this;
-  // state에 autoplay 옵션 추가
   Object.assign(state, { autoplay: { ...state.autoplay, running: false, paused: true } })
   const {
     autoplay,
@@ -119,24 +117,6 @@ export function autoplay(state) {
     run();
   }
 
-  // function onTransitionStart() {
-  //   moveEventsData.transitionEnd = false;
-  // }
-  // function onTransitionEnd() {
-  //   tags.sliderWrapper.style.transitionDuration = '0ms';
-  //   if (state.translate === 0) {
-  //     state.translate = -100 * (tags.slides.length - 2);
-  //     state.curIdx = tags.slides.length;
-  //     tags.sliderWrapper.style.transform = (direction === 'vertical') ? `translate3d(0, ${state.translate}%, 0)` : `translate3d(${state.translate}%, 0, 0)`;
-  //   } else if (state.translate === -100 * (tags.slides.length - 1)) {
-  //     state.translate = -100;
-  //     state.curidx = 1;
-  //     tags.sliderWrapper.style.transform = (direction === 'vertical') ? `translate3d(0, ${state.translate}%, 0)` : `translate3d(${state.translate}%, 0, 0)`;
-  //   }
-
-  //   moveEventsData.transitionEnd = true;
-  // }
-
   function onVisibilityChange() {
     if (document.hidden && autoplay.running) {
       pause();
@@ -155,16 +135,6 @@ export function autoplay(state) {
     addEvent(tags.$el, 'pointerleave', onPointerLeave);
   }
 
-  // function attachTransitionEvent() {
-  //   addEvent(tags.$el, 'transitionstart', onTransitionStart);
-  //   addEvent(tags.$el, 'transitionend', onTransitionEnd);
-  // }
-
-  // function detachTransitionEvent() {
-  //   removeEvent(tags.$el, 'transitionstart', onTransitionStart);
-  //   removeEvent(tags.$el, 'transitionend', onTransitionEnd);
-  // }
-
   on('init', () => {
     if (autoplay.enabled) {
       addEvent(document, 'visibilitychange', onVisibilityChange);
@@ -182,4 +152,4 @@ export function autoplay(state) {
   on('destroy', () => {
     stop();
   })
-} // autoplay 끝
+}

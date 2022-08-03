@@ -30,21 +30,19 @@ export function pagination(state) {
   }
 
   function onClick(e) {
-    // for (const dot of tags.pagination.children) {
-    //   if (dot.dataset.index !== this.dataset.index) {
-    //     dot.classList.remove('slider-pagination__dot--active');
-    //   }
-    // }
-    state.translate = (this.dataset.index - 1) * (-100);
-    // type변경
-    state.curIdx = this.dataset.index / 1 - 1;
+    if (state.loop) {
+      state.translate = (this.dataset.index) * (-100);
+      state.curIdx = this.dataset.index / 1;
+    } else {
+      state.translate = (this.dataset.index - 1) * (-100);
+      state.curIdx = this.dataset.index / 1 - 1;
+    }
     state.tags.sliderWrapper.style.transitionDuration = `${state.transitionSpeed}ms`;
     if (state.direction === 'vertical') {
       state.tags.sliderWrapper.style.transform = `translate3d(0, ${state.translate}%, 0)`;
     } else {
       state.tags.sliderWrapper.style.transform = `translate3d(${state.translate}%, 0, 0)`;
     }
-    // this.classList.add('slider-pagination__dot--active');
   }
 
   function create() {

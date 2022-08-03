@@ -1,6 +1,5 @@
 const eventsEmitter = {
   eventsListeners: {},
-  // 이벤트 등록
   /**
    *
    * @param {string} events event name
@@ -23,11 +22,9 @@ const eventsEmitter = {
     const self = eventsEmitter;
     if (!self.eventsListeners) return self;
     events.split(' ').forEach(event => {
-      // 전부 초기화
       if (typeof handler === 'undefined') self.eventsListeners[event] = [];
       else if (self.eventsListeners[event]) {
         self.eventsListeners[event].forEach((eventHandler, index) => {
-          // index번호로부터 1개 (본인 삭제)
           if (eventHandler === handler) self.eventsListeners[event].splice(index, 1);
         });
       }

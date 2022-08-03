@@ -1,6 +1,5 @@
 
 export function setProps(props) {
-  // props가 object인 경우, 특정 값만 변경하여 넣으면 다른 object.keys는 전부 사라져서 따로 변경하여 사용.
   const newProps = {
     init: true,
     sliderClass: 'slider',

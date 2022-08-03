@@ -29,7 +29,6 @@ export function init(props) {
       state.moveEventsData.transitionEnd = false;
     }
   }
-  // loop 제어 및 다음 슬라이드 이동 방지
   function onTransitionEnd() {
     if (state.loop) {
       state.tags.sliderWrapper.style.transitionDuration = '0ms';
@@ -55,7 +54,5 @@ export function init(props) {
   arrow(state);
   pageNumber(state);
   pagination(state);
-  // module화 대비 함수 실행
-  // autoplay.apply(state);
   eventsEmitter.trigger('init');
 }

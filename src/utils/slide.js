@@ -1,5 +1,4 @@
 function prevSlide(state) {
-  // transition이 작동안하므로 true 처리
   if (!state.loop && state.translate + 100 > 0) return (state.moveEventsData.transitionEnd = true);
   state.translate += 100
   state.curIdx -= 1

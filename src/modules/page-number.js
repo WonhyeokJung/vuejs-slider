@@ -5,7 +5,6 @@ export function pageNumber(state) {
     const pageNum = document.querySelector('.slider-page-number__content');
     const target = state.tags.sliderWrapper;
     const option = {
-      // child 변경 감지
       childList: true,
       attributes: true,
       attributeFilter: ['style'],
