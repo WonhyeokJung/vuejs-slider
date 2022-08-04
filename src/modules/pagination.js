@@ -1,6 +1,7 @@
 import { eventsEmitter, addEvent } from '../utils/event';
 
 export function pagination(state) {
+  if (!state.usePagination.enabled) return;
   function start() {
     const target = state.tags.sliderWrapper;
     const option = {
@@ -91,6 +92,6 @@ export function pagination(state) {
     create();
   })
   eventsEmitter.on('destroy', () => {
-    destroy();
+    if (state.tags.pagination.children) destroy();
   })
 }

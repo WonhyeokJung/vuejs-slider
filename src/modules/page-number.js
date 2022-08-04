@@ -1,6 +1,7 @@
 import { eventsEmitter } from '../utils/event';
 
 export function pageNumber(state) {
+  if (!state.usePageNumber.enabled) return;
   function run() {
     const pageNum = document.querySelector('.slider-page-number__content');
     const target = state.tags.sliderWrapper;

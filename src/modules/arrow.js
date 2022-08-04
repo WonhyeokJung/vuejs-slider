@@ -2,6 +2,7 @@ import { addEvent, eventsEmitter } from '../utils/event';
 import { prevSlide, nextSlide } from '../utils/slide';
 
 export function arrow(state) {
+  if (!state.useArrow.enabled) return;
   const {
     moveEventsData,
     tags

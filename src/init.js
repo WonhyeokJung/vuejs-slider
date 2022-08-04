@@ -50,9 +50,14 @@ export function init(props) {
     addEvent(state.tags.$el, 'transitionstart', onTransitionStart);
     addEvent(state.tags.$el, 'transitionend', onTransitionEnd);
   })
-  autoplay(state);
-  arrow(state);
-  pageNumber(state);
-  pagination(state);
+  
+  const modules = [autoplay, arrow, pageNumber, pagination];
+  function use(modules) {
+    modules.forEach(module => {
+      module(state);
+    })
+  }
+
+  use(modules);
   eventsEmitter.trigger('init');
 }

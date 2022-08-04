@@ -10,7 +10,7 @@ export function setProps(props) {
     },
     autoplay: {
       enabled: false,
-      toForward: false,
+      toForward: true,
       delay: 3300,
       waitForTransition: true,
       disableOnInteraction: false,
@@ -23,7 +23,7 @@ export function setProps(props) {
       followDirection: true,
     },
     usePageNumber: {
-      enabled: true
+      enabled: false
     },
     tag: 'div',
     width: 1000,

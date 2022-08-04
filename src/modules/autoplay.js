@@ -1,6 +1,7 @@
 import { addEvent, eventsEmitter } from '../utils/event';
 
 export function autoplay(state) {
+  if (!state.autoplay.enabled) return;
   if (!state) state = this;
   Object.assign(state, { autoplay: { ...state.autoplay, running: false, paused: true } })
   const {
@@ -147,9 +148,13 @@ export function autoplay(state) {
   });
 
   on('update', () => {
-    run();
+    if (autoplay.enabled) {
+      run();
+    }
   })
   on('destroy', () => {
-    stop();
+    if (autoplay.running) {
+      stop();
+    }
   })
 }
